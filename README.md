@@ -7,9 +7,60 @@
 | Maulana Ahmad Zahiri | 5027231010 |
 | Dzaky Faiq Fayyadhi  | 5027231047 |
 
-## Perhitungan VLSM untuk Jaringan (Prefix: 192.232.0.0)
+## IP PREFIX
 
-### 1. Pengurutan Kebutuhan Host (Dari Terbesar ke Terkecil)
+`192.232`
+
+## DAFTAR ISI
+
+- [VLSM](#vlsm)
+
+  - [Topology VLSM (Cisco Packet Tracer)](#topology-vlsm-cisco-packet-tracer)
+  - [Rute Subnet](#rute-subnet)
+  - [VLSM Tree](#vlsm-tree)
+  - [Pengurutan Host](#pengurutan-host)
+
+- [CIDR](#cidr)
+
+### Topology VLSM (Cisco Packet Tracer)
+
+![alt text](/img/topology-cisco.png)
+
+### Rute Subnet
+
+| Nama Subnet | Rute                                                                                        | Jumlah IP | Netmask |
+| ----------- | ------------------------------------------------------------------------------------------- | --------- | ------- |
+| A1          | Holo-Council > Switch12                                                                     | 62        | /26     |
+| A2          | Hololive > HoloEN > Holo-Myth > HoloPromise > Router15 > Tys                                | 3         | /29     |
+| A3          | Hololive > HoloEN > Holo-Myth > HoloPromise > Router15 > Holo-Council                       | 3         | /29     |
+| A4          | Hololive > HoloEN > HoloAdvent > SW10 > FuwaMoco, Shiori_Nerissa, Biboo                     | 28        | /27     |
+| A5          | Hololive > Holo-EN > Holo-Myth > SW9 > Gura_Ama_Ina > Kiara_Calli                           | 503       | /23     |
+| A6          | Hololive > HoloEN > Holo-Myth > HoloPromise > Holo-Council > SW12 > Kronii_Mumei, Bae_Fauna | 2         | /30     |
+| A7          | Hololive > HoloEN > HoloAdvent                                                              | 14        | /28     |
+| A8          | Hololive > Holo-JP > SW1 > DEV_IS > Re:GLO$$ > Ririka_Raden, Ao, Hajime_Kanade              | 2         | /30     |
+| A9          | Hololive > Holo-EN                                                                          | 2         | /30     |
+| A10         | Hololive > Holo-JP                                                                          | 2         | /30     |
+| A11         | Hololive > Holo-JP > SW1 > DEV_IS, GEN:0                                                    | 3         | /29     |
+| A12         | Hololive > Holo-JP > SW1 > DEV_IS, GEN:0 > SW5 > GEN:1 > GAMERS > SW8 > Korone, Okayu, Mio  | 2         | /30     |
+| A13         | Hololive > Holo-ID                                                                          | 120       | /25     |
+| A14         | Hololive > Holo-ID > SW2 > AREA15 > Moona, Bisu, lofi                                       | 661       | /22     |
+| A15         | Hololive > Holo-ID > AREA 15                                                                | 2         | /30     |
+| A16         | Hololive > Holo-ID > holoro                                                                 | 2         | /30     |
+| A17         | Hololive > Holo-ID > holoh3ro                                                               | 2         | /30     |
+| A18         | Hololive > Holo-JP > SW1 > DEV_IS, GEN:0 > SW5 > MiComet, Sora_Robo_AZki, GEN:1             | 2045      | /21     |
+| A19         | Hololive > Holo-JP > SW1 > DEV_IS, GEN:0 > SW5 > GEN:1 > GAMERS                             | 2         | /30     |
+| A20         | Hololive > Holo-ID > holoro > SW3, Ollie, Anya, Reine                                       | 34        | /26     |
+| A21         | Hololive > Holo-ID > holoh3ro > SW4 > Zeta, Kaela, Kobo                                     | 299       | /23     |
+| A22         | Hololive > Holo-JP > SW1 > DEV_IS, GEN:0 > SW5 > GEN:1 > Member > PBK_Matsuri, Aki_Hachama  | 470       | /23     |
+| TOTAL       |                                                                                             | 4263      | /19     |
+
+### VLSM Tree
+
+![alt text](/img/vlsm-tree.png)
+
+### Pengurutan Host
+
+- `(Dari Terbesar ke Terkecil)`
 
 1. A14 (661 host) - /22
 2. A18 (2045 host) - /21
@@ -24,7 +75,7 @@
 11. A2, A3, A11 (3 host masing-masing) - /29
 12. A6, A8, A9, A10, A12, A15, A16, A17, A19 (2 host masing-masing) - /30
 
-### 2. Tabel Pembagian IP
+### 2. Tabel Pembagian IP VLSM
 
 | Subnet | Host | Prefix | Length | Subnet Mask     | Network ID     | IP Awal        | IP Akhir       | Broadcast      |
 | ------ | ---- | ------ | ------ | --------------- | -------------- | -------------- | -------------- | -------------- |
@@ -50,5 +101,3 @@
 | A16    | 2    | /30    | 4      | 255.255.255.252 | 192.232.19.96  | 192.232.19.97  | 192.232.19.98  | 192.232.19.99  |
 | A17    | 2    | /30    | 4      | 255.255.255.252 | 192.232.19.100 | 192.232.19.101 | 192.232.19.102 | 192.232.19.103 |
 | A19    | 2    | /30    | 4      | 255.255.255.252 | 192.232.19.104 | 192.232.19.105 | 192.232.19.106 | 192.232.19.107 |
-
-![alt text](image.png)
